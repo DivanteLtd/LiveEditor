@@ -13,6 +13,9 @@ class LiveEditor {
     public $version;
     protected static $instance;
 
+    /**
+     * @return int
+     */
     protected function _determineVersion()
     {
         /*
@@ -24,6 +27,11 @@ class LiveEditor {
         return $version;
     }
 
+    /**
+     * @param int $version
+     *
+     * @return $this
+     */
     protected function _setVersion($version)
     {
         $this->version = $version;
@@ -37,6 +45,9 @@ class LiveEditor {
         }
     }
 
+    /**
+     * @return LiveEditor
+     */
     public static function getInstance()
     {
         if(! self::$instance) {
@@ -45,6 +56,9 @@ class LiveEditor {
         return self::$instance;
     }
 
+    /**
+     * @return mixed
+     */
     public function getVersion()
     {
         return $this->version;

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <divante_liveeditor>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/divante_liveeditor.js</name>
+                <params/>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/divante_liveeditor.css</stylesheet>
+            </action>
+        </reference>
+    </divante_liveeditor>
+    <default>
+        <update handle="divante_liveeditor"/>
+    </default>
+</layout>
