@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Divante_LiveEditor>
+            <version>0.1.0</version>
+        </Divante_LiveEditor>
+    </modules>
+    <global>
+        <models>
+            <divante_liveeditor>
+                <class>Divante_LiveEditor_Model</class>
+                <resourceModel>divante_liveeditor_resource</resourceModel>
+            </divante_liveeditor>
+            <divante_liveeditor_resource>
+                <class>Divante_LiveEditor_Model_Resource</class>
+            </divante_liveeditor_resource>
+        </models>
+        <blocks>
+            <divante_liveeditor>
+                <class>Divante_LiveEditor_Block</class>
+            </divante_liveeditor>
+        </blocks>
+        <helpers>
+            <divante_liveeditor>
+                <class>Divante_LiveEditor_Helper</class>
+            </divante_liveeditor>
+        </helpers>
+        <resources>
+            <divante_liveeditor_setup>
+                <setup>
+                    <module>Divante_LiveEditor</module>
+                </setup>
+            </divante_liveeditor_setup>
+        </resources>
+    </global>
+</config>
