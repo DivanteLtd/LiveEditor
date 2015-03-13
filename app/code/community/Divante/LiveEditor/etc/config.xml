@@ -33,4 +33,13 @@
             </divante_liveeditor_setup>
         </resources>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <divante_liveeditor>
+                    <file>divante_liveeditor.xml</file>
+                </divante_liveeditor>
+            </updates>
+        </layout>
+    </frontend>
 </config>
