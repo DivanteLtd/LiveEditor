@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Divante_LiveEditor>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Divante_LiveEditor>
+    </modules>
+</config>
