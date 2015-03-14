@@ -55,12 +55,12 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_Liv
      * @param $keywords
      * @return mixed
      */
-    public function saveMetadata($title, $description, $keywords)
+    public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper)
     {
         $this->getModel()
-            ->setMetaTitle((string) $title)
-            ->setMetaDescription((string) $description)
-            ->setMetaKeywords((string) $keywords)
+            ->setMetaTitle($mapper->getMetaTitle())
+            ->setMetaDescription($mapper->getMetaDescription())
+            ->setMetaKeywords($mapper->getMetaKeywords())
         ;
         return $this;
     }

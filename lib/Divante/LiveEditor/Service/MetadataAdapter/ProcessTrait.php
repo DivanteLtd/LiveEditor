@@ -45,15 +45,12 @@ trait Divante_LiveEdit_Service_MetadataAdapter_ProcessTrait
     }
 
     /**
-     * @param $title
-     * @param $description
-     * @param $keywords
-     * @return mixed
+     * @param Divante_LiveEditor_Service_MetadataMapper $mapper
      */
-    public function saveMetadata($title, $description, $keywords)
+    public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper)
     {
 
-        $this->getMetadataAdapter()->saveMetadata($title, $description, $keywords);
+        $this->getMetadataAdapter()->saveMetadata($mapper);
 
     }
 }
