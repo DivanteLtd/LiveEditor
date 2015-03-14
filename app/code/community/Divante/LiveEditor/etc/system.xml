@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
     <sections>
-        <Divante translate="label">
+        <divante_liveeditor translate="label">
             <label>Live Editor Configuration</label>
             <tab>general</tab>
             <frontend_type>text</frontend_type>
@@ -92,6 +92,6 @@
                     </fields>
                 </advanced>
             </groups>
-        </Divante>
+        </divante_liveeditor>
     </sections>
 </config>
