@@ -42,13 +42,8 @@ class Divante_LiveEditor_Service_Product
      * @param string $url
      * @param int $productId
      */
-    public function saveUrlKey($url, $productId)
+    public function setUrlKey($url)
     {
-        $this->load($productId);
         $this->getLoadedModel()->setUrlKey($url);
-
-        $this->getLoadedModel()->save();
-
-        $this->_reindexCatalogUrl();
     }
 }

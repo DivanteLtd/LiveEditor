@@ -60,7 +60,7 @@ abstract class Divante_LiveEditor_Service_Abstract
      * Reindex catalog_url indexer for single product
      * @TODO differentiate between magento 1.x and magento 2.x
      */
-    protected function _reindexCatalogUrl()
+    public function reindexCatalogUrl()
     {
         $object = $this->getLoadedModel();
         $event = Mage::getSingleton('index/indexer')->logEvent(
