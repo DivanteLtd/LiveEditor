@@ -8,7 +8,7 @@
  *
  * Class LiveEditor
  */
-class LiveEditor {
+class Divante_LiveEditor_LiveEditor {
 
     public $version;
     protected static $instance;
@@ -46,7 +46,7 @@ class LiveEditor {
     }
 
     /**
-     * @return LiveEditor
+     * @return Divante_LiveEditor_LiveEditor
      */
     public static function getInstance()
     {
@@ -62,6 +62,42 @@ class LiveEditor {
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @TODO Add singleton and id filter
+     */
+
+    /**
+     * @return Divante_LiveEditor_Service_Product
+     */
+    public function getProduct()
+    {
+        return new Divante_LiveEditor_Service_Product();
+    }
+
+    /**
+     * @return Divante_LiveEditor_Service_Cms_Block
+     */
+    public function getCmsBlock()
+    {
+        return new Divante_LiveEditor_Service_Cms_Block();
+    }
+
+    /**
+     * @return Divante_LiveEditor_Service_Cms_Page
+     */
+    public function getCmsPage()
+    {
+        return new Divante_LiveEditor_Service_Cms_Page();
+    }
+
+    /**
+     * @return Divante_LiveEditor_Service_Category
+     */
+    public function getCategory()
+    {
+        return new Divante_LiveEditor_Service_Category();
     }
 
 } 

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <divante_liveeditor translate="label">
+            <label>Live Editor Configuration</label>
+            <tab>general</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <!-- Live Editor Configuration groups -->
+                <basic translate="label">
+                    <label>Basic Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <!-- Basic Configuration Options -->
+                    <fields>
+                        <!-- Enable Module option -->
+                        <enabled translate="label comment">
+                            <label>Module is enabled</label>
+                            <comment>
+                                <![CDATA[Select Yes, if You want use this amazing module.<br />
+                                <span class="notice">If You try it once, then it will become Your must have extension for magento!</span>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <!-- Enable Live Editor Toolbar on Frontend -->
+                        <toolbarenabled translate="label comment">
+                            <label>Enable Live Editor Toolbar on Frontend</label>
+                            <comment>
+                                <![CDATA[Select Yes, if You want to Live Editor Toollbar be displayed on frontend.<br />
+                                <span class="notice">NOTICE: to see Live Editor Toolbar on frontend it is required to be logged in admin area as administrator.</span>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </toolbarenabled>
+                        <!-- Position Live Editor Toolbar on Frontend -->
+                        <positiontoolbar translate="label comment">
+                            <label>Position Live Editor Toolbar on Frontend</label>
+                            <comment>
+                                <![CDATA[Select frontend Live Editor Toolbar position.<br />
+                                <span class="notice">This option determines place, where toolbar should be displayed on frontend.</span>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>divante_liveeditor/system_config_source_toolbarpositions</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </positiontoolbar>
+                    </fields>
+                </basic>
+                <advanced translate="label">
+                    <label>Advanced Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <!-- Advanced Configuration Options -->
+                    <fields>
+                        <!-- Display inactive elements on frontend -->
+                        <inactiveelements translate="label comment">
+                            <label>Display inactive elements on frontend</label>
+                            <comment>
+                                <![CDATA[Select elements,which You want to display on frontend, even if they are inactive. This gives ability to enable elements directly from frontend area.<br />
+                                    <span class="notice">NOTICE: It might cause increasing of page loading time.</span>]]>
+                            </comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>divante_liveeditor/system_config_source_elements</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inactiveelements>
+                    </fields>
+                </advanced>
+            </groups>
+        </divante_liveeditor>
+    </sections>
+</config>

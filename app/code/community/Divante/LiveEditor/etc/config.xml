@@ -42,4 +42,15 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <default>
+            <divante_liveeditor>
+                <basic>
+                    <enabled>1</enabled>
+                    <toolbarenabled>1</toolbarenabled>
+                    <positiontoolbar>1</positiontoolbar>
+                </basic>
+            </divante_liveeditor>
+        </default>
+    </adminhtml>
 </config>
