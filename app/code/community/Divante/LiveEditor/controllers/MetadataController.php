@@ -17,8 +17,7 @@ class Divante_LiveEditor_MetadataController extends Mage_Core_Controller_Front_A
         $error = '';
         if($request->isPost() && $model instanceof Divante_LiveEditor_Service_MetadataInterface) {
             try {
-                $model->saveMetadata($request->getPost('metadata_title', ''), $request->getPost('metadata_description', ''),
-                    $request->getPost('metadata_keywords', ''));
+                $model->saveMetadata(Divante_LiveEditor_Service_MetadataMapper::factory($request->getPost()));
             } catch (Exception $e) {
                 Mage::logException($e);
                 $error = $e->getMessage();
