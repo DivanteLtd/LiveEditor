@@ -42,4 +42,15 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <default>
+            <Divante>
+                <basic>
+                    <enabled>1</enabled>
+                    <toolbarenabled>1</toolbarenabled>
+                    <positiontoolbar>1</positiontoolbar>
+                </basic>
+            </Divante>
+        </default>
+    </adminhtml>
 </config>
