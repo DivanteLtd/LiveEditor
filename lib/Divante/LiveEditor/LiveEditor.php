@@ -104,10 +104,14 @@ class Divante_LiveEditor_LiveEditor
     /**
      * @return $this|null
      */
-    public function getGlobalModel()
+    public function getGlobalModel($action = null)
     {
         $request = Mage::app()->getRequest();
-        $action = $request->getModuleName() . '/' . $request->getControllerName() . '/' . $request->getActionName();
+
+        if (null === $action) {
+            $action = $this->getActionIdentifier();
+        }
+
         switch($action) {
             case 'catalog/category/view':
                 $model = $this->getCategory()->load($request->getParam('id'));
@@ -115,7 +119,17 @@ class Divante_LiveEditor_LiveEditor
             default:
                 $model = null;
         }
+
         return $model;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActionIdentifier()
+    {
+        $request = Mage::app()->getRequest();
+        return ($request->getModuleName() . '/' . $request->getControllerName() . '/' . $request->getActionName());
     }
 
 } 

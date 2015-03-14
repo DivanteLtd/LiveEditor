@@ -13,10 +13,10 @@ class Divante_LiveEditor_MetadataController extends Mage_Core_Controller_Front_A
 
     public function viewAction()
     {
-        $this->getResponse()->setHeader('Content-type', 'application/json');
-        $this->getResponse()->setBody(Zend_Json::encode(array(
-            'test' => 5
-        )));
+//        $this->getResponse()->setHeader('Content-type', 'application/json');
+//        $this->getResponse()->setBody(Zend_Json::encode(array(
+//            'test' => 5
+//        )));
     }
 
 }
