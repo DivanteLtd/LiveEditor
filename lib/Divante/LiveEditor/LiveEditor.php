@@ -8,7 +8,8 @@
  *
  * Class LiveEditor
  */
-class Divante_LiveEditor_LiveEditor {
+class Divante_LiveEditor_LiveEditor
+{
 
     public $version;
     protected static $instance;
@@ -98,6 +99,37 @@ class Divante_LiveEditor_LiveEditor {
     public function getCategory()
     {
         return new Divante_LiveEditor_Service_Category();
+    }
+
+    /**
+     * @return $this|null
+     */
+    public function getGlobalModel($action = null)
+    {
+        $request = Mage::app()->getRequest();
+
+        if (null === $action) {
+            $action = $this->getActionIdentifier();
+        }
+
+        switch($action) {
+            case 'catalog/category/view':
+                $model = $this->getCategory()->load($request->getParam('id'));
+                break;
+            default:
+                $model = null;
+        }
+
+        return $model;
+    }
+
+    /**
+     * @return string
+     */
+    public function getActionIdentifier()
+    {
+        $request = Mage::app()->getRequest();
+        return ($request->getModuleName() . '/' . $request->getControllerName() . '/' . $request->getActionName());
     }
 
 } 
