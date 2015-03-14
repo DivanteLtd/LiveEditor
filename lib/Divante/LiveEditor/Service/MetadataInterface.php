@@ -22,10 +22,8 @@ interface Divante_LiveEditor_Service_MetadataInterface
     public function getMetaTitle();
 
     /**
-     * @param $title
-     * @param $description
-     * @param $keywords
+     * @param Divante_LiveEditor_Service_MetadataMapper $mapper
      * @return mixed
      */
-    public function saveMetadata($title, $description, $keywords);
+    public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper);
 }
