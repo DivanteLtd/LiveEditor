@@ -41,12 +41,10 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento2 implements Divante_Liv
     }
 
     /**
-     * @param $title
-     * @param $description
-     * @param $keywords
-     * @return mixed
+     * @param Divante_LiveEditor_Service_MetadataMapper $mapper
+     * @return $this
      */
-    public function saveMetadata($title, $description, $keywords)
+    public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper)
     {
         // TODO: Implement saveMetadata() method.
         return $this;
