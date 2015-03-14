@@ -40,9 +40,8 @@ class Divante_LiveEditor_LiveEditor
         return $this;
     }
 
-    protected function __construct()
-    {
-        if (!$this->version) {
+    protected function __construct(){
+        if(!$this->version){
             $this->_setVersion($this->_determineVersion());
         }
     }
@@ -52,7 +51,7 @@ class Divante_LiveEditor_LiveEditor
      */
     public static function getInstance()
     {
-        if (!self::$instance) {
+        if(! self::$instance) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -103,7 +102,7 @@ class Divante_LiveEditor_LiveEditor
     }
 
     /**
-     * @return $this|null
+     * @return Divante_LiveEditor_Service_Abstract|null
      */
     public function getGlobalModel($action = null)
     {
@@ -113,9 +112,15 @@ class Divante_LiveEditor_LiveEditor
             $action = $this->getActionIdentifier();
         }
 
-        switch ($action) {
-            case 'catalog/category/view':
+        switch($action) {
+            case 'catalog_category_view':
                 $model = $this->getCategory()->load($request->getParam('id'));
+                break;
+            case 'catalog_product_view':
+                $model = $this->getProduct()->load($request->getParam('id'));
+                break;
+            case 'cms_page_view':
+                $model = $this->getCmsPage()->load($request->getParam('id'));
                 break;
             default:
                 $model = null;
@@ -130,7 +135,7 @@ class Divante_LiveEditor_LiveEditor
     public function getActionIdentifier()
     {
         $request = Mage::app()->getRequest();
-        return ($request->getModuleName() . '/' . $request->getControllerName() . '/' . $request->getActionName());
+        return ($request->getModuleName() . '_' . $request->getControllerName() . '_' . $request->getActionName());
     }
 
     /**

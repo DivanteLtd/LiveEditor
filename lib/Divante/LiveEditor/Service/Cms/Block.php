@@ -6,6 +6,8 @@ class Divante_LiveEditor_Service_Cms_Block extends Divante_LiveEditor_Service_Ab
 {
     /**
      * @return Mage_Core_Model_Abstract
+     *
+     * @TODO add magento 2 support
      */
     public function getModel()
     {
