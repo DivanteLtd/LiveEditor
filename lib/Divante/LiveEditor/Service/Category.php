@@ -1,11 +1,8 @@
 <?php
-
 /**
  * Class Divante_LiveEditor_Service_Category
  */
-
-
-
+include_once 'MetadataAdapter/ProcessTrait.php';
 class Divante_LiveEditor_Service_Category
     extends Divante_LiveEditor_Service_Abstract
     implements Divante_LiveEditor_Service_MetadataInterface
