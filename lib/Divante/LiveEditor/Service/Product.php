@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Divante_LiveEditor_Service_Product
  */
@@ -39,5 +40,33 @@ class Divante_LiveEditor_Service_Product
         // TODO: Implement getMetaTitle() method.
     }
 
+    /**
+     * @TODO differentiate between magento 1.x and magento 2.x
+     *
+     * @param int $productId
+     *
+     * @return string
+     */
+    public function getUrlKey($productId)
+    {
+        $this->load($productId);
 
+        return $this->getLoadedModel()->getUrlKey();
+    }
+
+    /**
+     * @TODO differentiate between magento 1.x and magento 2.x
+     *
+     * @param string $url
+     * @param int $productId
+     */
+    public function saveUrlKey($url, $productId)
+    {
+        $this->load($productId);
+        $this->getLoadedModel()->setUrlKey($url);
+
+        $this->getLoadedModel()->save();
+
+        $this->_reindexCatalogUrl();
+    }
 }

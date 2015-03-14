@@ -39,5 +39,32 @@ class Divante_LiveEditor_Service_Category
         // TODO: Implement getMetaTitle() method.
     }
 
+    /**
+     * @TODO differentiate between magento 1.x and magento 2.x
+     *
+     * @param int $categoryId
+     *
+     * @return string
+     */
+    public function getUrlKey($categoryId)
+    {
+        $this->load($categoryId);
 
+        return $this->getLoadedModel()->getUrlKey();
+    }
+
+    /**
+     * @TODO differentiate between magento 1.x and magento 2.x
+     *
+     * @param string $url
+     * @param int $categoryId
+     */
+    public function saveUrlKey($url, $categoryId)
+    {
+        $this->load($categoryId);
+        $this->getLoadedModel()->setUrlKey($url);
+        $this->getLoadedModel()->save();
+
+        $this->_reindexCatalogUrl();
+    }
 }
