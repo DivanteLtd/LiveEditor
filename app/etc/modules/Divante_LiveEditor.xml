@@ -4,6 +4,9 @@
         <Divante_LiveEditor>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+            </depends>
         </Divante_LiveEditor>
     </modules>
 </config>
