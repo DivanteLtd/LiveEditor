@@ -30,7 +30,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_Liv
      */
     public function getMetaDescription()
     {
-        return $this->getModel()->getMetaDescription();
+        return $this->getModel()->getLoadedModel()->getMetaDescription();
     }
 
     /**
@@ -38,7 +38,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_Liv
      */
     public function getMetaKeywords()
     {
-        return $this->getModel()->getMetaKeywords();
+        return $this->getModel()->getLoadedModel()->getMetaKeywords();
     }
 
     /**
@@ -46,7 +46,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_Liv
      */
     public function getMetaTitle()
     {
-        return $this->getModel()->getMetaTitle();
+        return $this->getModel()->getLoadedModel()->getMetaTitle();
     }
 
     /**
@@ -57,7 +57,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_Liv
      */
     public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper)
     {
-        $this->getModel()
+        $this->getModel()->getLoadedModel()
             ->setMetaTitle($mapper->getMetaTitle())
             ->setMetaDescription($mapper->getMetaDescription())
             ->setMetaKeywords($mapper->getMetaKeywords())
