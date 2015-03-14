@@ -68,7 +68,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
 
         if($model instanceof Divante_LiveEditor_Service_Product) {
             /** @var Divante_LiveEditor_Service_Product $model */
-            $model->setUrlKey($mapper->getUrlKey(), $model->getLoadedModel()->getId());
+            $model->setUrlKey($mapper->getUrlKey());
         }
 
         $statusMapper = $this->getStatusMapper();
