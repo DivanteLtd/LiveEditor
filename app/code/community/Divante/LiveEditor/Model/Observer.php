@@ -66,4 +66,43 @@ class Divante_LiveEditor_Model_Observer
         $deleteButton->setBeforeHtml($block->getChild('cmspage_liveedit_button')->toHtml());
 
     }
+
+    /**
+     * @param Varien_Event_Observer $observer
+     */
+    public function renderBlock(Varien_Event_Observer $observer)
+    {
+        /** @var $block Mage_Core_Block_Abstract */
+        $block = $observer->getEvent()->getBlock();
+        $type = $block->getType();
+        $alias = $block->getBlockAlias();
+
+        switch ($alias) {
+            case 'cms.wrapper':
+                $elementClass = $block->getElementClass() . ' liveedit';
+                $block->setElementClass($elementClass);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * @param Varien_Event_Observer $observer
+     */
+    public function renderProductDescription(Varien_Event_Observer $observer)
+    {
+        /** @var Divante_LiveEditor_LiveEditor $liveEditor */
+        $liveEditor = Divante_LiveEditor_LiveEditor::getInstance();
+        if ($liveEditor->getActionIdentifier() == 'catalog_product_view') {
+            /** @var Mage_Catalog_Model_Product $product */
+            $product = $observer->getEvent()->getProduct();
+            $oldDescription = $product->getDescription();
+            if (null === $product->getMetaDescription()) {
+                $product->setMetaDescription($oldDescription);
+            }
+            $newDescription = '<div class="liveedit">' . $oldDescription . '</div>';
+            $product->setDescription($newDescription);
+        }
+    }
 }

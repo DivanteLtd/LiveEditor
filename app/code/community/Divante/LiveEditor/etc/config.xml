@@ -59,6 +59,26 @@
                 </args>
             </divante_liveeditor>
         </routers>
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <divante_liveeditor>
+                        <type>model</type>
+                        <class>Divante_LiveEditor_Model_Observer</class>
+                        <method>renderBlock</method>
+                    </divante_liveeditor>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <catalog_product_load_after>
+                <observers>
+                    <divante_liveeditor>
+                        <type>model</type>
+                        <class>Divante_LiveEditor_Model_Observer</class>
+                        <method>renderProductDescription</method>
+                    </divante_liveeditor>
+                </observers>
+            </catalog_product_load_after>
+        </events>
     </frontend>
     <adminhtml>
         <default>
