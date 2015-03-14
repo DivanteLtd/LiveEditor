@@ -40,8 +40,9 @@ class Divante_LiveEditor_LiveEditor
         return $this;
     }
 
-    protected function __construct(){
-        if(!$this->version){
+    protected function __construct()
+    {
+        if (!$this->version) {
             $this->_setVersion($this->_determineVersion());
         }
     }
@@ -51,7 +52,7 @@ class Divante_LiveEditor_LiveEditor
      */
     public static function getInstance()
     {
-        if(! self::$instance) {
+        if (!self::$instance) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -112,7 +113,7 @@ class Divante_LiveEditor_LiveEditor
             $action = $this->getActionIdentifier();
         }
 
-        switch($action) {
+        switch ($action) {
             case 'catalog/category/view':
                 $model = $this->getCategory()->load($request->getParam('id'));
                 break;
@@ -130,6 +131,14 @@ class Divante_LiveEditor_LiveEditor
     {
         $request = Mage::app()->getRequest();
         return ($request->getModuleName() . '/' . $request->getControllerName() . '/' . $request->getActionName());
+    }
+
+    /**
+     * @return Divante_LiveEditor_Service_Configuration
+     */
+    public function getConfiguration()
+    {
+        return new Divante_LiveEditor_Service_Configuration();
     }
 
 } 
