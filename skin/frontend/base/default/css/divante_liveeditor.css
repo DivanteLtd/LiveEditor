@@ -1,0 +1,139 @@
+#le_toolbar {
+    top:0;
+    width:100%;
+    height:50px;
+    position:fixed;
+    z-index:2000;
+    background:url(../images/divante_liveeditor/header_top_bg.gif) repeat-x #425e66;
+
+}
+.le_toolbar_left {
+    float:left;
+    width:300px;
+    padding-top:5px;
+    padding-left:7px;
+}
+.le_toolbar_left img {
+    float:left;
+
+}
+.le_modeselector {
+    margin-top:4px;
+    float:left;
+    margin-left:10px;
+    width:100px;
+
+}
+
+.le_toolbar_center {
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    width:600px;
+}
+
+.le_toolbar_center > .activeElement {
+    color:#cdcdcd;
+}
+
+.le_toolbar_right {
+    float:right;
+    width:300px;
+    margin-top:11px;
+    margin-right:30px;
+}
+.le_toolbar_right > .loggedUser {
+    border: 1px solid #a9a9a9;
+    border-top: none;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius: 5px;
+    color: #a9a9a9;
+    position:absolute;
+    top:0px;
+    right:0px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.le_toolbar_singlebutton {
+    float:right;
+    border:1px solid #c9c9c9;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border-bottom:none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color:#c9c9c9;
+    font-size:10px;
+    margin-left:5px;
+    cursor:pointer;
+}
+.le_toolbar_singlebutton:hover {
+    font-weight: bold;
+    color:#c9c9c9;
+    text-decoration: none;
+}
+/*FORMS*/
+#le_form_markup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -210px;
+    z-index:1000;
+    background:url(../images/divante_liveeditor/header_top_bg.gif) repeat-x #425e66;
+    border: 1px solid #c8c8c8;
+    border-radius:4px;
+    border-bottom:1px solid #5F767F;
+
+}
+#le_form_title {
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border-bottom:1px solid #5F767F;
+}
+#le_form_body {
+
+    padding:20px;
+    padding-top:0;
+    padding-bottom:10px;
+}
+#le_form_footer {
+    float:right;
+    margin-right:20px;
+    margin-bottom:10px;
+}
+
+.le_form_field {
+    min-height:50px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+}
+#le_form_body label {
+    color:white;
+    min-width:200px;
+}
+#le_form_body span {
+    float:right;
+
+}
+#le_form_body input {
+    width:200px;
+}
+#le_form_form {
+    border-bottom:1px solid #5F767F;
+}
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, 0.25);
+    z-index:999;
+    color:white;
+}

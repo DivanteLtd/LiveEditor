@@ -34,6 +34,15 @@
         </resources>
     </global>
     <frontend>
+        <routers>
+            <divante_liveeditor_view>
+                <use>standard</use>
+                <args>
+                    <module>Divante_LiveEditor</module>
+                    <frontName>liveeditor</frontName>
+                </args>
+            </divante_liveeditor_view>
+        </routers>
         <layout>
             <updates>
                 <divante_liveeditor>

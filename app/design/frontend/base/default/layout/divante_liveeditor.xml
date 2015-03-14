@@ -10,6 +10,18 @@
             <action method="addCss">
                 <stylesheet>css/divante_liveeditor.css</stylesheet>
             </action>
+            <action method="addCss">
+                <stylesheet>css/jquery-ui.min.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>../../../adminhtml/default/default/boxes.css</name>
+            </action>
+        </reference>
+        <reference name="head">
+            <!--<reference name="top.container">-->
+                <block type="page/html" name="liveeditor_toolbar" output="toHtml" template="liveeditor/toolbar.phtml" before="global_notices"/>
+            <!--</reference>-->
         </reference>
     </divante_liveeditor>
     <default>
