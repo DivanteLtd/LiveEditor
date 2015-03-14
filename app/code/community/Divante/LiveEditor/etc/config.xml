@@ -52,5 +52,16 @@
                 </basic>
             </divante_liveeditor>
         </default>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <divante_liveeditor>
+                        <type>model</type>
+                        <class>Divante_LiveEditor_Model_Observer</class>
+                        <method>addLiveEditButton</method>
+                    </divante_liveeditor>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
     </adminhtml>
 </config>
