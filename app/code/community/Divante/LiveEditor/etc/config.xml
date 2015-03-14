@@ -19,6 +19,11 @@
             <divante_liveeditor>
                 <class>Divante_LiveEditor_Block</class>
             </divante_liveeditor>
+            <adminhtml>
+                <rewrite>
+                    <cms_page_edit>Divante_LiveEditor_Block_Cms_Page_Edit</cms_page_edit>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <divante_liveeditor>
