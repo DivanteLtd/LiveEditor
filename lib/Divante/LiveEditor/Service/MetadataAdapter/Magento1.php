@@ -5,7 +5,9 @@
  * Date: 2015-03-14
  * Time: 18:03
  */
-class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_LiveEditor_Service_MetadataInterface
+class Divante_LiveEditor_Service_MetadataAdapter_Magento1
+    extends Divante_LiveEditor_Service_MetadataAdapter_Abstract
+    implements Divante_LiveEditor_Service_MetadataInterface
 {
     /**
      * @var Divante_LiveEditor_Service_Abstract
@@ -57,11 +59,25 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1 implements Divante_Liv
      */
     public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper)
     {
-        $this->getModel()->getLoadedModel()
+        $model = $this->getModel();
+        $model->getLoadedModel()
             ->setMetaTitle($mapper->getMetaTitle())
             ->setMetaDescription($mapper->getMetaDescription())
             ->setMetaKeywords($mapper->getMetaKeywords())
         ;
+
+        if($model instanceof Divante_LiveEditor_Service_Product) {
+            /** @var Divante_LiveEditor_Service_Product $model */
+            $model->saveUrlKey($mapper->getUrlKey(), $model->getLoadedModel()->getId());
+        }
+
+        $statusMapper = $this->getStatusMapper();
+        ((bool) $mapper->getStatus())
+            ? $statusMapper->setIsEnabled($model->getLoadedModel())
+            : $statusMapper->setIsDisabled($model->getLoadedModel());
+
+        $model->getLoadedModel()->save();
+
         return $this;
     }
 

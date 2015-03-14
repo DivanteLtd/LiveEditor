@@ -20,7 +20,7 @@ class Divante_LiveEditor_Service_MetadataMapper
         foreach($values as $key => $value) {
             $methodName = 'set' . Zend_Filter::filterStatic($key, 'Word_UnderscoreToCamelCase');
             if(method_exists($model, $methodName)) {
-                call_user_func(array($model, $value));
+                call_user_func(array($model, $methodName), $value);
             }
         }
 

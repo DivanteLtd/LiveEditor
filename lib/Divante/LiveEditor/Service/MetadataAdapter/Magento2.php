@@ -11,7 +11,9 @@
 /**
  * Class Divante_LiveEditor_Service_MetadataAdapter_Magento1
  */
-class Divante_LiveEditor_Service_MetadataAdapter_Magento2 implements Divante_LiveEditor_Service_MetadataInterface
+class Divante_LiveEditor_Service_MetadataAdapter_Magento2
+    extends Divante_LiveEditor_Service_MetadataAdapter_Abstract
+    implements Divante_LiveEditor_Service_MetadataInterface
 {
     /**
      * @return string
