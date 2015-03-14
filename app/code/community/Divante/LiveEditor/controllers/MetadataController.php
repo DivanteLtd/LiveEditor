@@ -8,8 +8,7 @@ class Divante_LiveEditor_MetadataController extends Mage_Core_Controller_Front_A
 
     public function saveAction()
     {
-        $service = Divante_LiveEditor_LiveEditor::getInstance()->getProduct();
-        $service->saveProductUrlKey('top2', 421);
+        
     }
 
     public function viewAction()
