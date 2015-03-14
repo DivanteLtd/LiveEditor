@@ -41,5 +41,14 @@
                 </divante_liveeditor>
             </updates>
         </layout>
+        <routers>
+            <divante_liveeditor>
+                <use>standard</use>
+                <args>
+                    <module>Divante_LiveEditor</module>
+                    <frontName>liveeditor</frontName>
+                </args>
+            </divante_liveeditor>
+        </routers>
     </frontend>
 </config>
