@@ -167,7 +167,17 @@ var LiveEditorToolbar = (function() {
                     jQuery(this).find('img').attr('src','view.png');
                 }
                 jQuery(this).find('p').text(currentMode);
-            })
+            });
+
+            jQuery.ajax({
+                type: 'POST',
+                url: "http://dev.hackhaton/liveeditor/index/view",
+                data: { referer_action: 'catalog_category_view', id: '7' },
+                dataType: "json",
+                success: function(data) {
+                    jQuery('.le_admin_page_button').attr('href', data);
+                }
+            });
 
         }
     }

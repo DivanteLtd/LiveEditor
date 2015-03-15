@@ -21,4 +21,13 @@ class Divante_LiveEditor_Service_Cms_Page
         return Mage::getModel('cms/page');
     }
 
+    /**
+     * @return string
+     */
+    public function getAdminUrl()
+    {
+        return Mage::helper("adminhtml")
+            ->getUrl("adminhtml/cms_page/edit", array('page_id' => $this->getLoadedModel()->getId()));
+    }
+
 }

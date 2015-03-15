@@ -21,4 +21,13 @@ class Divante_LiveEditor_Service_Product
     {
         return Mage::getModel('catalog/product');
     }
+
+    /**
+     * @return string
+     */
+    public function getAdminUrl()
+    {
+        return Mage::helper("adminhtml")
+            ->getUrl("adminhtml/catalog_product/edit", array('id' => $this->getLoadedModel()->getId()));
+    }
 }

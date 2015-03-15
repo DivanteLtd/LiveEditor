@@ -19,4 +19,13 @@ class Divante_LiveEditor_Service_Category
     {
         return Mage::getModel('catalog/category');
     }
+
+    /**
+     * @return string
+     */
+    public function getAdminUrl()
+    {
+        return Mage::helper("adminhtml")
+            ->getUrl("adminhtml/catalog_category/index", array('id' => $this->getLoadedModel()->getId(), 'clear' => 1));
+    }
 }

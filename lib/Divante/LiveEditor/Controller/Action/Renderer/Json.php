@@ -26,4 +26,16 @@ class Divante_LiveEditor_Controller_Action_Renderer_Json extends Divante_LiveEdi
         return Zend_Json::encode($json);
     }
 
+    /**
+     * @TODO add support for Zend Framework 2
+     *
+     * @param $string
+     *
+     * @return string
+     */
+    public static function getStringJson($string)
+    {
+        return Zend_Json::encode($string);
+    }
+
 }

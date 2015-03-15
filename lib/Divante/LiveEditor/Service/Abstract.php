@@ -88,6 +88,14 @@ abstract class Divante_LiveEditor_Service_Abstract
     }
 
     /**
+     * @return string
+     */
+    public function getAdminUrl()
+    {
+        return Mage::helper("adminhtml")->getUrl("dashboard");
+    }
+
+    /**
      * @return Mage_Core_Model_Abstract
      */
     abstract public function getModel();
