@@ -171,8 +171,8 @@ var LiveEditorToolbar = (function() {
 
             jQuery.ajax({
                 type: 'POST',
-                url: "http://dev.hackhaton/liveeditor/index/view",
-                data: { referer_action: 'catalog_category_view', id: '7' },
+                url: "/liveeditor/index/view",
+                data: { referer_action: jQuery("input[name='referer_action']").val(), id: jQuery("input[name='id']").val() },
                 dataType: "json",
                 success: function(data) {
                     jQuery('.le_admin_page_button').attr('href', data);
@@ -180,7 +180,7 @@ var LiveEditorToolbar = (function() {
             });
 
             jQuery.ajax({
-                url: "http://dev.hackhaton/liveeditor/index/logout",
+                url: "/liveeditor/index/logout",
                 dataType: "json",
                 success: function(data) {
                     jQuery('.le_logout_button').attr('href', data);

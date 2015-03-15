@@ -10,6 +10,10 @@ class Divante_LiveEditor_IndexController extends Mage_Core_Controller_Front_Acti
     {
         $request = $this->getRequest();
 
+        if ('' === $request->getParam('referer_action') || '' === $request->getParam('id')) {
+            return null;
+        }
+
         $model = Divante_LiveEditor_LiveEditor::getInstance()
             ->getGlobalModel($request->getParam('referer_action'));
 
