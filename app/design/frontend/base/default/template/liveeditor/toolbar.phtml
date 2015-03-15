@@ -3,8 +3,16 @@
     <div id="le_form_title"></div>
     <div id="le_form_body">
         <form id="le_form_form">
-            <input type="hidden" name="referer_action" value="<?php echo Divante_LiveEditor_LiveEditor::getInstance()->getActionIdentifier(); ?>" />
-            <input type="hidden" name="id" value="<?php echo Divante_LiveEditor_LiveEditor::getInstance()->getActionParam('id'); ?>" />
+            <?php
+                $refererAction = Divante_LiveEditor_LiveEditor::getInstance()->getActionIdentifier();
+                if ($refererAction == 'cms_page_view') {
+                    $param = 'page_id';
+                } else {
+                    $param = 'id';
+                }
+            ?>
+            <input type="hidden" name="referer_action" value="<?php echo $refererAction; ?>" />
+            <input type="hidden" name="id" value="<?php echo Divante_LiveEditor_LiveEditor::getInstance()->getActionParam($param); ?>" />
             <fieldset>
 
             </fieldset>

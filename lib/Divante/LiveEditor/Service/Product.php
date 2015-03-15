@@ -27,7 +27,12 @@ class Divante_LiveEditor_Service_Product
      */
     public function getAdminUrl()
     {
+        $secretKey = Divante_LiveEditor_LiveEditor::getInstance()->getAdminSecretKey('catalog_category', 'index');
+
         return Mage::helper("adminhtml")
-            ->getUrl("adminhtml/catalog_product/edit", array('id' => $this->getLoadedModel()->getId()));
+            ->getUrl("adminhtml/catalog_product/edit", array(
+                'id' => $this->getLoadedModel()->getId(),
+                'key' => $secretKey
+            ));
     }
 }
