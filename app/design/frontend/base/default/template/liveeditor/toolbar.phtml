@@ -1,3 +1,56 @@
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        var SiteOptionsForm = {
+            action: "changeSiteOptions",
+            label: "Site Options",
+            fields: [
+                {
+                    label: "Title",
+                    id: "title",
+                    type: "text",
+                    value: "2"
+                },
+                {
+                    label: "Meta keywords",
+                    id: "meta_keywords",
+                    type: "textarea",
+                    value: "lorem"
+                },
+                {
+                    label: "Meta description",
+                    id: "meta_description",
+                    type: "text",
+                    value: "lorem"
+                }
+            ]
+        };
+
+        var MyForms = [
+            {
+                elements: [".liveedit"],
+                label: "HTML LiveEdit Form",
+                fields: [
+                    {
+                        label: "Content",
+                        id: "html-edit",
+                        type: "html",
+                        value: function (element) {
+                            return jQuery(element).text();
+                        }
+                    }
+                ]
+            }
+        ];
+
+        LiveEditorToolbar.init({
+            SiteOptions: SiteOptionsForm,
+            FormObjects: MyForms,
+            editPNG: "<?php echo $this->getSkinUrl('images/divante_liveeditor/edit.png'); ?>",
+            viewPNG: "<?php echo $this->getSkinUrl('images/divante_liveeditor/view.png'); ?>"
+        });
+    });
+</script>
+
 <div class="overlay" style="display:none"></div>
 <div id="le_form_markup" style="display:none">
     <div id="le_form_title"></div>
@@ -20,12 +73,13 @@
 <div id="le_toolbar">
     <div class="le_toolbar_left">
         <img src="<?php echo $this->getSkinUrl('images/divante_liveeditor/logo.gif'); ?>"/>
-        <div class="button le_modeselector"><img src="icon"/>
+        <div class="button le_modeselector"><img style="width:24px;height:24px" src="<?php echo $this->getSkinUrl('images/divante_liveeditor/edit.png'); ?>"/>
             <p class="le_modeselector_text">Edit</p>
         </div>
     </div>
     <div class="le_toolbar_center">
         <div class="activeElement">Active Element</div>
+        <div class="currentMode">View mode</div>
     </div>
     <div class="le_toolbar_right">
         <div class="loggedUser">loggedUser</div>
