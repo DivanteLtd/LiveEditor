@@ -24,4 +24,14 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1_UrlKeyMapper
         return $this;
     }
 
+    /**
+     * @param $model - Magento 1 or Magento 2 model
+     * @return mixed
+     */
+    public function getUrlKey($model)
+    {
+        return $model instanceof Mage_Cms_Model_Page ? $model->getIdentifier() : $model->getUrlKey();
+    }
+
+
 }

@@ -43,6 +43,16 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento2
     }
 
     /**
+     * @return mixed
+     */
+    public function getUrlKey()
+    {
+        // TODO: Implement getUrlKey() method.
+        return '';
+    }
+
+
+    /**
      * @param Divante_LiveEditor_Service_MetadataMapper $mapper
      * @return $this
      */

@@ -15,4 +15,10 @@ abstract class Divante_LiveEditor_Service_MetadataAdapter_UrlKeyMapperAbstract
      */
     abstract public function setUrlKey($value, $model);
 
+    /**
+     * @param $model - Magento 1 or Magento 2 model
+     * @return mixed
+     */
+    abstract public function getUrlKey($model);
+
 }

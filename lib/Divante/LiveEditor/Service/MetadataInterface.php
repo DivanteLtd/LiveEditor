@@ -22,6 +22,11 @@ interface Divante_LiveEditor_Service_MetadataInterface
     public function getMetaTitle();
 
     /**
+     * @return mixed
+     */
+    public function getUrlKey();
+
+    /**
      * @param Divante_LiveEditor_Service_MetadataMapper $mapper
      * @return mixed
      */

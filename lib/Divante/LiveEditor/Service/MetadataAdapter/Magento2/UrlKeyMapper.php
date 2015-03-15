@@ -19,4 +19,15 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento2_UrlKeyMapper
         return $this;
     }
 
+    /**
+     * @param $model - Magento 1 or Magento 2 model
+     * @return mixed
+     */
+    public function getUrlKey($model)
+    {
+        // TODO: Implement getUrlKey() method.
+        return '';
+    }
+
+
 }

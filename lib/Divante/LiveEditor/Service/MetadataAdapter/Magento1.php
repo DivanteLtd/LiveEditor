@@ -56,7 +56,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
      */
     public function getUrlKey()
     {
-        return $this->getModel()->getLoadedModel()->getUrlKey();
+        return $this->getUrlKeyMapper()->getUrlKey($this->getModel()->getLoadedModel());
     }
 
     /**
@@ -84,7 +84,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
 
         $model->getLoadedModel()->save();
 
-        if($model instanceof Divante_LiveEditor_Service_Product) {
+        if($model instanceof Divante_LiveEditor_Service_Product || $model instanceof Divante_LiveEditor_Service_Category) {
             $model->reindexCatalogUrl();
         }
 

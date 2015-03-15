@@ -19,7 +19,8 @@ class Divante_LiveEditor_Controller_Action_Renderer_Json extends Divante_LiveEdi
         $json = array(
             'meta_description' => $model->getMetaDescription(),
             'meta_keywords' => $model->getMetaKeywords(),
-            'meta_title' => $model->getMetaTitle()
+            'meta_title' => $model->getMetaTitle(),
+            'url_key' => $model->getUrlKey()
         );
 
         return Zend_Json::encode($json);
