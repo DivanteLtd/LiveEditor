@@ -21,29 +21,4 @@ class Divante_LiveEditor_Service_Product
     {
         return Mage::getModel('catalog/product');
     }
-
-    /**
-     * @TODO differentiate between magento 1.x and magento 2.x
-     *
-     * @param int $productId
-     *
-     * @return string
-     */
-    public function getUrlKey($productId)
-    {
-        $this->load($productId);
-
-        return $this->getLoadedModel()->getUrlKey();
-    }
-
-    /**
-     * @TODO differentiate between magento 1.x and magento 2.x
-     *
-     * @param string $url
-     * @param int $productId
-     */
-    public function setUrlKey($url)
-    {
-        $this->getLoadedModel()->setUrlKey($url);
-    }
 }
