@@ -32,6 +32,15 @@ class Divante_LiveEditor_Service_MetadataSample implements Divante_LiveEditor_Se
     }
 
     /**
+     * @return mixed
+     */
+    public function getUrlKey()
+    {
+        return '';
+    }
+
+
+    /**
      * @param Divante_LiveEditor_Service_MetadataMapper $mapper
      * @return $this
      */

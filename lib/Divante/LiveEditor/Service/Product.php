@@ -4,12 +4,14 @@
  * Class Divante_LiveEditor_Service_Product
  */
 include_once 'MetadataAdapter/ProcessTrait.php';
+include_once 'Content/Adapter/ProcessTrait.php';
 
 class Divante_LiveEditor_Service_Product
     extends Divante_LiveEditor_Service_Abstract
-    implements Divante_LiveEditor_Service_MetadataInterface
+    implements Divante_LiveEditor_Service_MetadataInterface, Divante_LiveEditor_Service_Content_Interface
 {
     use Divante_LiveEdit_Service_MetadataAdapter_ProcessTrait;
+    use Divante_LiveEdit_Service_Content_Adapter_ProcessTrait;
 
     /**
      * @return Mage_Catalog_Model_Product

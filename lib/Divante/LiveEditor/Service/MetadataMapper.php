@@ -5,27 +5,10 @@
  * Date: 2015-03-14
  * Time: 21:48
  */
-class Divante_LiveEditor_Service_MetadataMapper
+class Divante_LiveEditor_Service_MetadataMapper extends Divante_LiveEditor_Service_MapperAbstract
 {
     protected $metaTitle, $metaDescription, $metaKeywords, $urlKey, $status, $store_id;
 
-    /**
-     * @param array $values
-     * @return Divante_LiveEditor_Service_MetadataMapper
-     */
-    public static function factory(array $values)
-    {
-        $model = new self();
-
-        foreach($values as $key => $value) {
-            $methodName = 'set' . Zend_Filter::filterStatic($key, 'Word_UnderscoreToCamelCase');
-            if(method_exists($model, $methodName)) {
-                call_user_func(array($model, $methodName), $value);
-            }
-        }
-
-        return $model;
-    }
 
     /**
      * @return mixed
