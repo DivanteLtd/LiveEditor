@@ -5,6 +5,7 @@
 abstract class Divante_LiveEditor_Service_Abstract
 {
     protected $loadedModel;
+
     /**
      * @var int
      */
@@ -22,11 +23,14 @@ abstract class Divante_LiveEditor_Service_Abstract
     /**
      * @param $id
      * @param null $field
+     * @param bool $readonlyAction - if readonly true, than loaded model is set for front store id
      * @return $this
      */
-    public function load($id, $field = null)
+    public function load($id, $field = null, $readonlyAction = false)
     {
-        $this->_setAdminStore();
+        if (! $readonlyAction) {
+            $this->_setAdminStore();
+        }
         $this->loadedModel = $this->getModel()->load($id, $field);
 
         return $this;

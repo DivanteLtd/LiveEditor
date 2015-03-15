@@ -68,12 +68,18 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
     public function saveMetadata(Divante_LiveEditor_Service_MetadataMapper $mapper)
     {
         $model = $this->getModel();
+        $isCatalogModel = ($model instanceof Divante_LiveEditor_Service_Product
+            || $model instanceof Divante_LiveEditor_Service_Category);
+
         $model->getLoadedModel()
             ->setMetaTitle($mapper->getMetaTitle())
             ->setMetaDescription($mapper->getMetaDescription())
             ->setMetaKeywords($mapper->getMetaKeywords())
         ;
 
+        if($isCatalogModel) {
+            $model->setStoreId($mapper->getStoreId());
+        }
 
         $this->getUrlKeyMapper()->setUrlKey($mapper->getUrlKey(), $model->getLoadedModel());
 
@@ -84,7 +90,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
 
         $model->getLoadedModel()->save();
 
-        if($model instanceof Divante_LiveEditor_Service_Product || $model instanceof Divante_LiveEditor_Service_Category) {
+        if($isCatalogModel) {
             $model->reindexCatalogUrl();
         }
 

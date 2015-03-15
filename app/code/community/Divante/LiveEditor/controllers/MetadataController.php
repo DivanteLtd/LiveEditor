@@ -34,7 +34,7 @@ class Divante_LiveEditor_MetadataController extends Mage_Core_Controller_Front_A
         $request = $this->getRequest();
 
         $model = Divante_LiveEditor_LiveEditor::getInstance()
-            ->getGlobalModel($request->getParam('referer_action'));
+            ->getGlobalModel($request->getParam('referer_action'),  true);
 
         if(!$model instanceof Divante_LiveEditor_Service_MetadataInterface) {
             $model = new Divante_LiveEditor_Service_MetadataSample();

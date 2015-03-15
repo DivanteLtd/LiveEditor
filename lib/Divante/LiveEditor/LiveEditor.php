@@ -104,7 +104,7 @@ class Divante_LiveEditor_LiveEditor
     /**
      * @return Divante_LiveEditor_Service_Abstract|null
      */
-    public function getGlobalModel($action = null)
+    public function getGlobalModel($action = null, $readonly = false)
     {
         $request = Mage::app()->getRequest();
 
@@ -114,13 +114,13 @@ class Divante_LiveEditor_LiveEditor
 
         switch($action) {
             case 'catalog_category_view':
-                $model = $this->getCategory()->load($request->getParam('id'));
+                $model = $this->getCategory()->load($request->getParam('id'), null, $readonly);
                 break;
             case 'catalog_product_view':
-                $model = $this->getProduct()->load($request->getParam('id'));
+                $model = $this->getProduct()->load($request->getParam('id'), null, $readonly);
                 break;
             case 'cms_page_view':
-                $model = $this->getCmsPage()->load($request->getParam('id'));
+                $model = $this->getCmsPage()->load($request->getParam('id'), null, $readonly);
                 break;
             default:
                 $model = null;

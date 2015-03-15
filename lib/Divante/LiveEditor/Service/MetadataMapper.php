@@ -7,7 +7,7 @@
  */
 class Divante_LiveEditor_Service_MetadataMapper
 {
-    protected $metaTitle, $metaDescription, $metaKeywords, $urlKey, $status;
+    protected $metaTitle, $metaDescription, $metaKeywords, $urlKey, $status, $store_id;
 
     /**
      * @param array $values
@@ -25,6 +25,22 @@ class Divante_LiveEditor_Service_MetadataMapper
         }
 
         return $model;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStoreId()
+    {
+        return $this->store_id;
+    }
+
+    /**
+     * @param int $store_id
+     */
+    public function setStoreId($store_id)
+    {
+        $this->store_id = (int) $store_id;
     }
 
     /**
