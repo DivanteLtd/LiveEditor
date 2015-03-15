@@ -16,4 +16,11 @@ abstract class Divante_LiveEditor_Service_MetadataAdapter_Abstract
             ? new Divante_LiveEditor_Service_MetadataAdapter_Magento1_StatusMapper()
             : new Divante_LiveEditor_Service_MetadataAdapter_Magento2_StatusMapper();
     }
+
+    public function getUrlKeyMapper()
+    {
+        return Divante_LiveEditor_LiveEditor::getInstance()->getVersion() == 1
+            ? new Divante_LiveEditor_Service_MetadataAdapter_Magento1_UrlKeyMapper()
+            : new Divante_LiveEditor_Service_MetadataAdapter_Magento2_UrlKeyMapper();
+    }
 }

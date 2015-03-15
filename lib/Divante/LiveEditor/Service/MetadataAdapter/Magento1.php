@@ -52,6 +52,14 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
     }
 
     /**
+     * @return mixed
+     */
+    public function getUrlKey()
+    {
+        return $this->getUrlKeyMapper()->getUrlKey($this->getModel()->getLoadedModel());
+    }
+
+    /**
      * @param $title
      * @param $description
      * @param $keywords
@@ -66,10 +74,8 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
             ->setMetaKeywords($mapper->getMetaKeywords())
         ;
 
-        if($model instanceof Divante_LiveEditor_Service_Product) {
-            /** @var Divante_LiveEditor_Service_Product $model */
-            $model->setUrlKey($mapper->getUrlKey());
-        }
+
+        $this->getUrlKeyMapper()->setUrlKey($mapper->getUrlKey(), $model->getLoadedModel());
 
         $statusMapper = $this->getStatusMapper();
         ((bool) $mapper->getStatus())
@@ -78,7 +84,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
 
         $model->getLoadedModel()->save();
 
-        if($model instanceof Divante_LiveEditor_Service_Product) {
+        if($model instanceof Divante_LiveEditor_Service_Product || $model instanceof Divante_LiveEditor_Service_Category) {
             $model->reindexCatalogUrl();
         }
 
