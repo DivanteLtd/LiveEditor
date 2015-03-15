@@ -146,4 +146,16 @@ class Divante_LiveEditor_LiveEditor
         return new Divante_LiveEditor_Service_Configuration();
     }
 
+    /**
+     * @param string $param
+     *
+     * @return string
+     */
+    public function getActionParam($param)
+    {
+        $request = Mage::app()->getRequest();
+
+        return $request->getParam($param);
+    }
+
 } 

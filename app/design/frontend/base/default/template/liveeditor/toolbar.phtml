@@ -3,8 +3,8 @@
     <div id="le_form_title"></div>
     <div id="le_form_body">
         <form id="le_form_form">
-            <input type="hidden" name="referer_action" value="" />
-            <input type="hidden" name="id" value="" />
+            <input type="hidden" name="referer_action" value="<?php echo Divante_LiveEditor_LiveEditor::getInstance()->getActionIdentifier(); ?>" />
+            <input type="hidden" name="id" value="<?php echo Divante_LiveEditor_LiveEditor::getInstance()->getActionParam('id'); ?>" />
             <fieldset>
 
             </fieldset>
