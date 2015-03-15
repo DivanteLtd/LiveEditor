@@ -44,6 +44,11 @@ trait Divante_LiveEdit_Service_MetadataAdapter_ProcessTrait
         return $this->getMetadataAdapter()->getMetaKeywords();
     }
 
+    public function getUrlKey()
+    {
+        return $this->getMetadataAdapter()->getUrlKey();
+    }
+
     /**
      * @param Divante_LiveEditor_Service_MetadataMapper $mapper
      */
