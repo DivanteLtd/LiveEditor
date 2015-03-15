@@ -179,6 +179,14 @@ var LiveEditorToolbar = (function() {
                 }
             });
 
+            jQuery.ajax({
+                url: "http://dev.hackhaton/liveeditor/index/logout",
+                dataType: "json",
+                success: function(data) {
+                    jQuery('.le_logout_button').attr('href', data);
+                }
+            });
+
         }
     }
 })();
