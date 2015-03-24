@@ -1,3 +1,7 @@
+/**
+ * Dmitrij Rysanow <dmitrij.rysanow@gmail.com>
+ */
+
 jQuery.noConflict();
 
 
@@ -44,7 +48,7 @@ var FormRenderer = (function () {
                 } else if (typeof field.value === "function") {
                     var text = field.value(element);
                 }
-                var textarea = jQuery('<textarea />').attr(attr).html(text);
+                var textarea = jQuery('<br><textarea />').attr(attr).html(text).height(350).width(600);
 
                 jqObj.append(label).append(textarea);
                 break;
@@ -74,20 +78,32 @@ var FormRenderer = (function () {
         jQuery(elements.form).find("fieldset").children().remove();
     }
 
-    //TODO:repair
-    function scrollToTop() {
-        var body = $("body, html");
-        var top = body.scrollTop() // Get position of the body
-        if (top != 0) {
-            body.animate({scrollTop: 0}, '500');
-        }
+    function scrollToViewport(form) {
+        var scrollPos = jQuery(document).scrollTop();
+
+        jQuery(form).animate({
+            "margin-top": scrollPos - 100
+        },300);
+    }
+
+
+    function unscrollViewport(form, callback) {
+        jQuery(form).animate({
+            "margin-top": 100
+        },300,function() {
+            if (typeof callback === "function") {
+
+                callback();
+            }
+        });
+
     }
 
     return {
         init: function () {
             var that = this;
             jQuery(elements.closeButton).click(function () {
-                that.closeForm();
+                that.closeForm(true);
             });
         },
 
@@ -96,7 +112,7 @@ var FormRenderer = (function () {
          * @param FormObject formObj
          */
         openForm: function (formObj, element) {
-            this.closeForm();
+            this.closeForm(false);
             var that = this;
             currentForm = formObj;
             jQuery(elements.formTitle).text(currentForm.label);
@@ -107,15 +123,25 @@ var FormRenderer = (function () {
             });
             jQuery(elements.overlay).show();
             jQuery(elements.overlay).click(function () {
-                that.closeForm()
+                that.closeForm(true);
             });
 
-            jQuery(elements.formDiv).fadeIn();
+            jQuery(elements.formDiv).show();
+            scrollToViewport(elements.formDiv);
         },
-        closeForm: function () {
-            jQuery(elements.formDiv).hide();
-            jQuery(elements.overlay).hide();
-            cleanForm();
+        closeForm: function (current) {
+            if (current) {
+                unscrollViewport(elements.formDiv, function () {
+                    jQuery(elements.formDiv).hide();
+                    cleanForm();
+                    jQuery(elements.overlay).hide();
+                });
+
+            } else {
+                cleanForm();
+            }
+
+            currentForm = null;
         }
     }
 })();
@@ -222,8 +248,10 @@ var LiveEditorToolbar = (function () {
                     }
                 });
 
-                jQuery(element).click(function () {
+                jQuery(element).click(function (e) {
+
                     if (currentMode === "edit") {
+                        e.preventDefault();
                         FormRenderer.openForm(form, this);
                     }
                 })
