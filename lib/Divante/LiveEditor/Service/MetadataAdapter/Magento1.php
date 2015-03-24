@@ -78,7 +78,7 @@ class Divante_LiveEditor_Service_MetadataAdapter_Magento1
         ;
 
         if($isCatalogModel) {
-            $model->setStoreId($mapper->getStoreId());
+            $model->getLoadedModel()->setStoreId($mapper->getStoreId());
         }
 
         $this->getUrlKeyMapper()->setUrlKey($mapper->getUrlKey(), $model->getLoadedModel());
