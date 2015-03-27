@@ -40,8 +40,9 @@ class Divante_LiveEditor_LiveEditor
         return $this;
     }
 
-    protected function __construct(){
-        if(!$this->version){
+    protected function __construct()
+    {
+        if (!$this->version) {
             $this->_setVersion($this->_determineVersion());
         }
     }
@@ -51,7 +52,7 @@ class Divante_LiveEditor_LiveEditor
      */
     public static function getInstance()
     {
-        if(! self::$instance) {
+        if (!self::$instance) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -112,7 +113,7 @@ class Divante_LiveEditor_LiveEditor
             $action = $this->getActionIdentifier();
         }
 
-        switch($action) {
+        switch ($action) {
             case 'catalog_category_view':
                 $model = $this->getCategory()->load($request->getParam('id'), null, $readonly);
                 break;
@@ -157,5 +158,44 @@ class Divante_LiveEditor_LiveEditor
 
         return $request->getParam($param);
     }
+
+    /**
+     * @param string|null $controller
+     * @param string|null $action
+     *
+     * @return string
+     */
+    public function getAdminSecretKey($controller = null, $action = null)
+    {
+        $switchSessionName = 'adminhtml';
+        $currentSessionId = Mage::getSingleton('core/session')->getSessionId();
+        $currentSessionName = Mage::getSingleton('core/session')->getSessionName();
+        $salt = null;
+        if ($currentSessionId && $currentSessionName && isset($_COOKIE[$currentSessionName])) {
+            $switchSessionId = $_COOKIE[$switchSessionName];
+            $this->_switchSession($switchSessionName, $switchSessionId);
+            $salt = $_SESSION['core']['_form_key'];
+            $this->_switchSession($currentSessionName, $currentSessionId);
+        }
+
+        $secret = $controller . $action . $salt;
+
+        return Mage::helper('core')->getHash($secret);
+    }
+
+    /**
+     * @param string $namespace
+     * @param int|null $id
+     */
+    protected function _switchSession($namespace, $id = null) {
+        session_write_close();
+        $GLOBALS['_SESSION'] = null;
+        $session = Mage::getSingleton('core/session');
+        if ($id) {
+            $session->setSessionId($id);
+        }
+        $session->start($namespace);
+    }
+
 
 } 

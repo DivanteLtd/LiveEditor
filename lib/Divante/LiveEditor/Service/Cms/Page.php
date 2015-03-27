@@ -28,8 +28,13 @@ class Divante_LiveEditor_Service_Cms_Page
      */
     public function getAdminUrl()
     {
+        $secretKey = Divante_LiveEditor_LiveEditor::getInstance()->getAdminSecretKey('cms_page', 'edit');
+
         return Mage::helper("adminhtml")
-            ->getUrl("adminhtml/cms_page/edit", array('page_id' => $this->getLoadedModel()->getId()));
+            ->getUrl("adminhtml/cms_page/edit", array(
+                'page_id' => $this->getLoadedModel()->getId(),
+                'key' => $secretKey
+            ));
     }
 
 }

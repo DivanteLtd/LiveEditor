@@ -25,7 +25,8 @@ class Divante_LiveEditor_IndexController extends Mage_Core_Controller_Front_Acti
 
     public function logoutAction()
     {
-        $logoutUrl = Mage::helper("adminhtml")->getUrl("adminhtml/index/logout");
+        $secretKey = Divante_LiveEditor_LiveEditor::getInstance()->getAdminSecretKey('index', 'logout');
+        $logoutUrl = Mage::helper("adminhtml")->getUrl("adminhtml/index/logout", array('key' => $secretKey));
 
         $this->getResponse()
             ->setHeader('Content-type', 'application/json');
